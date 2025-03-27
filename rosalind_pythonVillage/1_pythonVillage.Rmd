@@ -1,0 +1,45 @@
+---
+title: "rosalind_pythonVillage"
+author: "Dewi Anastasia Christina"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Installation
+
+```{python}
+import this
+```
+
+## 2. Some funs
+
+```{python}
+def test_fun(a, b):
+  return a + b
+
+def hypoCrazy(a, b):
+  return a**2 + b**2
+
+test_fun(25, 3)
+hypoCrazy(816, 889)
+
+
+```
+
+```{python}
+# Fun with open file
+def hypoCrazy(file):
+  val = open(file, "rt").read().split()
+  
+  a = int(val[0]) # almost forgot that Py starts with 0
+  b = int(val[1])
+  
+  return a**2 + b**2
+
+if __name__ == '__main__':
+  print(hypoCrazy("/home/ron/Python_tests/rosalind_pythonVillage/rosalind_ini2.txt"))
+```
