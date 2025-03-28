@@ -17,6 +17,8 @@ import this
 
 ## 2. Some funs
 
+### Variables and some arithmetic
+
 ```{python}
 def test_fun(a, b):
   return a + b
@@ -41,5 +43,101 @@ def hypoCrazy(file):
   return a**2 + b**2
 
 if __name__ == '__main__':
-  print(hypoCrazy("/home/ron/Python_tests/rosalind_pythonVillage/rosalind_ini2.txt"))
+  print(hypoCrazy("../rosalind_pythonVillage/rosalind_ini2.txt"))
 ```
+
+### Strings and lists
+
+```{python}
+def stringExtractor(s, a, b, c, d):
+  return s[a:b+1], s[c:d+1]
+  # f = open(file, "rt")
+  # string = f.readlines().strip()
+  # vals = f.readlines()
+  
+if __name__ == "__main__":
+  with open("../rosalind_pythonVillage/rosalind_ini3.txt") as f:
+    s = f.readline().strip()
+    a, b, c, d = map(int, f.readline().strip().split())
+    
+    s1, s2 = stringExtractor(s, a, b, c, d)
+    print(s1, s2)
+  
+```
+
+### Conditions and loops
+
+```{python}
+def loopsHoops(a, b):
+  sums = 0 # define annoying obj
+  for i in range(a, b+1):
+    if i % 2 == 1:
+      sums += i
+    else:
+      pass
+    
+  return sums
+
+if __name__ == "__main__":
+  with open("../rosalind_pythonVillage/rosalind_ini4.txt") as f:
+    s = f.readline().strip().split()
+    a, b = map(int, s)
+    result = loopsHoops(a, b)
+    print(result)
+
+```
+
+### Working with files
+
+```{python}
+def evenPages(ins, out):
+  with open(ins, "r") as f, open(out, "w") as o:
+    for i, l in enumerate(f, start = 1):
+      if i % 2 == 0:
+        o.write(l)
+        
+if __name__ == "__main__":
+  evenPages("../rosalind_pythonVillage/rosalind_ini5.txt",
+            "../rosalind_pythonVillage/rosalind_ini5_out.txt")
+
+```
+
+### Py dictionary intro
+
+```{python}
+def wordCounts(ins, out):
+  dics = {} # annoying empty dict
+  
+  with open(ins, "r") as f, open(out, "w") as o:
+    for w in f.read().split():
+      dics[w] = dics.get(w, 0) + 1
+      
+    for k, val in dics.items():
+       o.write(f"{k} {val}\n") # fucking f-strings
+      
+if __name__ == "__main__":
+  wordCounts("../rosalind_pythonVillage/rosalind_ini6.txt",
+            "../rosalind_pythonVillage/rosalind_ini6_out.txt")
+            
+# print(open("../rosalind_pythonVillage/rosalind_ini6_out.txt", "r").read())
+```
+
+```{python}
+def get_word_count(s):
+    word_count = {}
+    for w in s.split(" "):
+        if w not in word_count:
+            word_count[w] = 0
+        word_count[w] += 1
+    return word_count
+
+if __name__ == "__main__":
+    with open("../rosalind_pythonVillage/rosalind_ini6.txt", "r") as f:
+        s = f.readline().strip()
+    word_count = get_word_count(s)
+    for k,v in word_count.items():
+        # print(k, v)
+        pass
+```
+
+x
