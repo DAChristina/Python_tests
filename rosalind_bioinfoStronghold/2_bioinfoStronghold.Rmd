@@ -9,3 +9,30 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## 1. DNA counts
+
+```{python}
+def dnaCounts(s):
+  ct = {
+    "A": 0,
+    "C": 0,
+    "G": 0,
+    "T": 0
+  }
+  
+  for i in s:
+    if i in ct:
+      ct[i] += 1
+  
+  return f"{ct["A"]} {ct["C"]} {ct["G"]} {ct["T"]}"
+
+if __name__ == "__main__":
+  with open("../rosalind_bioinfoStronghold/rosalind_dna.txt") as f:
+  #with open("../rosalind_pythonVillage/rosalind_ini3.txt") as f:
+    s = f.read()
+    dnaCounts(s)
+```
+
+## 2. Transcription
+
+x
