@@ -35,4 +35,59 @@ if __name__ == "__main__":
 
 ## 2. Transcription
 
+```{python}
+def transcript(s):
+  return s.replace("T", "U")
+
+if __name__ == "__main__":
+  with open("../rosalind_bioinfoStronghold/rosalind_rna.txt") as f:
+    s = f.read()
+    transcript(s)
+
+```
+
+## 3. DNA complement
+
+```{python}
+def complement(s):
+  for i in s:
+    if i == "A":
+      return s.replace("A", "T")
+    elif i == "T":
+      return s.replace("T", "A")
+    elif i == "G":
+      return s.replace("G", "C")
+    else:
+      return s.replace("C", "G")
+
+if __name__ == "__main__":
+  with open("../rosalind_bioinfoStronghold/rosalind_revc.txt") as f:
+    s = f.read()
+    complement(s)
+```
+
+Fuckin' weird code that overrides the string. Second attempt:
+
+```{python}
+def complement(s):
+  out = ""
+  for i in s[::-1]:
+    if i == "A":
+      out += "T"
+    if i == "T":
+      out += "A"
+    if i == "G":
+      out += "C"
+    if i == "C":
+      out += "G"
+      
+  return out
+
+if __name__ == "__main__":
+  with open("../rosalind_bioinfoStronghold/rosalind_revc.txt") as f:
+    s = f.read().strip()
+    out = complement(s)
+    print(out)
+```
+
 x
